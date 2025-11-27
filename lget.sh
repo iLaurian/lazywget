@@ -29,7 +29,7 @@ function parse-file {
     # -nH ca sa nu imi creeze iar folder cu hostname 
     # also, nesimtitii au decis ca progress barul sa fie scris pe stderr
     # al doilea cut e necesar sa scap de ghilimeaua de la sfarsit
-    file_name=`wget -P $ROOT_DIRECTORY -x -nH $resource_url 2>&1 | grep "Saving to:" | cut -d'‘' -f 2 | cut -d'‘' -f 1 | xargs basename`
+    file_name=`wget -P $ROOT_DIRECTORY -x -nH $resource_url 2>&1 | grep "Saving to:" | cut -d'‘' -f 2 | cut -d'’' -f 1 | xargs basename`
 
     if [[ "$file_name" != *".html" ]]; then
         return
