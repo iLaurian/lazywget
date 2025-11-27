@@ -1,0 +1,12 @@
+# 1. Ignore everything by default
+*
+
+# 2. Allow directories (so Git can look inside them for your files)
+!*/
+
+# 3. Whitelist (Un-ignore) the specific extensions you want
+!*.sh
+!*.md
+
+# 4. Whitelist this .gitignore file itself (so it is tracked)
+!.gitignore
