@@ -1,6 +1,7 @@
 # Raport de Proiect: LazyWGET
 
 **Studenți:** Laurian Iacob, Antonie Belu
+
 **Materie:** Instrumente și tehnici de bază in informatică  
 
 ---
@@ -96,6 +97,8 @@ Normalizarea URL-urilor tratează două cazuri principale:
 
 Scriptul presupune protocolul `http://` implicit. În cazul în care serverul necesită HTTPS, `wget` primește un cod **301 Moved Permanently** și urmărește automat redirecționarea către versiunea securizată. De asemenea, ieșirea standard de eroare (stderr) a comenzii `wget` este captată pentru a extrage numele fișierului salvat efectiv pe disc.
 
+---
+
 ## 5. Experimente și Validare
 
 ### 5.1 Scenariu de Test
@@ -127,9 +130,11 @@ fmi.unibuc.ro/
 │   └── curs1.pdf
 ```
 
-## 5.2 Performanță
+### 5.2 Performanță
 
 Scriptul evită descărcarea redundantă prin verificarea `visited.txt` la începutul fiecărei funcții `parse-file`. Timpul de execuție depinde strict de viteza rețelei și de numărul de link-uri de pe pagină.
+
+---
 
 ## 6. Concluzii
 
