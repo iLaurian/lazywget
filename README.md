@@ -12,10 +12,10 @@
 În contextul administrării sistemelor și al automatizării sarcinilor web, descărcarea recursivă a resurselor (Web Crawling) este o operațiune comună. Utilitarul standard `wget` oferă această funcționalitate prin flag-ul `-r`. Totuși, în anumite scenarii, descărcarea recursivă automată și neîntreruptă nu este de dorit, fie din motive de lățime de bandă, fie pentru a permite o inspecție intermediară a resurselor.
 
 ### 1.2 Obiectiv
-Scopul acestui proiect este implementarea unui utilitar denumit `lwget` (Lazy Wget). Acesta trebuie să emuleze comportamentul recursiv al comenzii `wget` fără a utiliza opțiunea `-r`, folosind o abordare "leneșă" (lazy evaluation).
+Scopul acestui proiect este implementarea unui utilitar denumit `lget` (Lazy Wget). Acesta trebuie să emuleze comportamentul recursiv al comenzii `wget` fără a utiliza opțiunea `-r`, folosind o abordare "leneșă" (lazy evaluation).
 
 ### 1.3 Specificul Problemei
-Spre deosebire de o execuție continuă, `lwget` funcționează pe etape:
+Spre deosebire de o execuție continuă, `lget` funcționează pe etape:
 1.  **Prima execuție:** Descarcă o singură pagină (rădăcina) și identifică resursele referite.
 2.  **Execuții ulterioare:** Procesează lista de resurse identificate anterior ("promisiuni"), le descarcă și extrage noi referințe pentru următoarea iterație.
 
@@ -106,13 +106,13 @@ Scriptul presupune protocolul `http://` implicit. În cazul în care serverul ne
 S-a testat scriptul pe un site static cu o structură ierarhică simplă (ex: pagina unei facultăți).
 
 **Pasul 1: Inițializare**  
-**Comanda**: `./lwget https://fmi.unibuc.ro`
+**Comanda**: `./lget https://fmi.unibuc.ro`
 
 **Rezultat:**  
 S-a creat directorul `fmi.unibuc.ro`. În interior se află `index.html` și fișierele de stare. `visited.txt` conține URL-ul rădăcină.
 
 **Pasul 2: Prima Iterație (Lazy)**  
-**Comanda**: `./lwget`
+**Comanda**: `./lget`
 
 **Rezultat:**  
 Scriptul a citit link-urile din pagina principală (ex: "Anunțuri", "Cazare"). A descărcat paginile respective.
