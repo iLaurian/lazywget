@@ -112,7 +112,7 @@ S-a testat scriptul pe un site static cu o structură ierarhică simplă (ex: pa
 S-a creat directorul `fmi.unibuc.ro`. În interior se află `index.html` și fișierele de stare. `visited.txt` conține URL-ul rădăcină.
 
 **Pasul 2: Prima Iterație (Lazy)**  
-**Comanda**: `./lget`
+**Comanda**: `./lget https://fmi.unibuc.ro`
 
 **Rezultat:**  
 Scriptul a citit link-urile din pagina principală (ex: "Anunțuri", "Cazare"). A descărcat paginile respective.
