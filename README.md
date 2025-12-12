@@ -1,6 +1,6 @@
 # Raport de Proiect: LazyWGET
 
-**Studenți:** Laurian Iacob, Antonie Belu
+**Studenți:** Laurian Iacob, Antonie-Gabriel Belu
 
 **Materie:** Instrumente și tehnici de bază in informatică  
 
@@ -101,7 +101,7 @@ Scriptul presupune protocolul `http://` implicit. În cazul în care serverul ne
 
 ## 5. Experimente și Validare
 
-### 5.1 Scenariu de Test
+### 5.1 Scenariu de Test 1
 
 S-a testat scriptul pe un site static cu o structură ierarhică simplă (ex: pagina unei facultăți).
 
@@ -130,7 +130,25 @@ fmi.unibuc.ro/
 │   └── curs1.pdf
 ```
 
-### 5.2 Performanță
+### 5.2 Scenariu de Test 2
+
+S-a testat scriptul pe un site static fără a specifica protocolul.
+
+Scriptul nostru atașează prefixul `https://`. Dacă serverul impune conexiunea securizată, `wget` va gestiona automat redirecționarea 301 către HTTPS. Utilizarea directă a prefixului `https://` ar fi cauzat eșecul operației.
+
+**Exemplul 1** (dacă se folosește `http://`)  
+**Comandă**: `./lget httpforever.com`
+
+**Rezultat:**  
+Se descarcă `index.html`. Se creează `promises.txt` cu link-urile din meniu.
+
+**Exemplul 2** (dacă s-ar fi folosit `https://`)  
+**Comandă**: `./lget httpforever.com`
+
+**Rezultat:**  
+Scriptul eșuează.
+
+### 5.3 Performanță
 
 Scriptul evită descărcarea redundantă prin verificarea `visited.txt` la începutul fiecărei funcții `parse-file`. Timpul de execuție depinde strict de viteza rețelei și de numărul de link-uri de pe pagină.
 
